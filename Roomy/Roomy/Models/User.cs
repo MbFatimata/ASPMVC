@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -42,6 +43,10 @@ namespace Roomy.Models
         [DataType(DataType.Password)]
         [Compare ("Password", ErrorMessage = "Erreur sur la {0}")]
         public string ConfirmedPassword { get; set; }
+
+        public string CivilityID { get; set; }
+        [ForeignKey("CivilityID")]
+        public Civility Civility { get; set; }
 
     }
 }
