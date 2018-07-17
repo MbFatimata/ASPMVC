@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Roomy.Models
 {
-    public class User
+    public class User : BaseModel
     {
         [Required(ErrorMessage ="Le champ {0} est obligatoire")]
         [Display(Name ="Nom")]
