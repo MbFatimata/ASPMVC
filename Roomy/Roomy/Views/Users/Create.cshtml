@@ -2,59 +2,72 @@
 <!-- lie le model à la vue -->
 @{
     /**/
-
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Create";
 }
+@section SectionTitle
+    {
+    <h2>Nouvel utilisateur</h2>
+}
 
-<h2>Nouvel utilisateur</h2>
 
 @using (Html.BeginForm("Create", "Users", System.Web.Mvc.FormMethod.Post))
 {
+    <div class="container">
+        <div class="col-md-6">
+            <div class="form-group">
 
-    <div class="form-group">
-        @* <label for="inputNom">Nom</label>
-            <input type="text" name="Lastname" id="inputNom" placeholder="Entrer votre nom" class="form-control" /> *@
-        @Html.LabelFor(x => x.Lastname)
-        @Html.EditorFor(x => x.Lastname, null, new { htmlAttributes = new { @class = "form-control" } })
-        <!-- EditorFor s'adapte au type de la propriété de mon model-->
-        @Html.ValidationMessageFor(x => x.Lastname, "", new { @class = "text-danger" })
+                @* <label for="inputNom">Nom</label>
+                    <input type="text" name="Lastname" id="inputNom" placeholder="Entrer votre nom" class="form-control" /> *@
+                @Html.LabelFor(x => x.Lastname)
+                @Html.EditorFor(x => x.Lastname, null, new { htmlAttributes = new { @class = "form-control" } })
+                <!-- EditorFor s'adapte au type de la propriété de mon model-->
+                @Html.ValidationMessageFor(x => x.Lastname, "", new { @class = "text-danger" })
 
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(x => x.Firstname)
+                @Html.EditorFor(x => x.Firstname, null, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.Firstname, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(x => x.Mail)
+                @Html.EditorFor(x => x.Mail, null, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.Mail, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(x => x.Password)
+                @Html.EditorFor(x => x.Password, null, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(x => x.ConfirmedPassword)
+                @Html.EditorFor(x => x.ConfirmedPassword, null, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.ConfirmedPassword, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(x => x.BirthDate)
+                @Html.EditorFor(x => x.BirthDate, null, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.BirthDate, "", new { @class = "text-danger" })
+
+            </div>
+            <button type="submit" class="btn btn-primary " value="Enregistrer" />
+        </div>
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(x => x.Firstname)
-        @Html.EditorFor(x => x.Firstname, null, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(x => x.Firstname, "", new { @class = "text-danger" })
-
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(x => x.Mail)
-        @Html.EditorFor(x => x.Mail, null, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(x => x.Mail, "", new { @class = "text-danger" })
-
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(x => x.Password)
-        @Html.EditorFor(x => x.Password, null, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
-
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(x => x.ConfirmedPassword)
-        @Html.EditorFor(x => x.ConfirmedPassword, null, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(x => x.ConfirmedPassword, "", new { @class = "text-danger" })
-
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(x => x.BirthDate)
-        @Html.EditorFor(x => x.BirthDate, null, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(x => x.BirthDate, "", new { @class = "text-danger" })
-
-    </div>
-    <input type="submit" value="Enregistrer" />
-
 }
+<!--  @section SectionScripts{
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+        }
+      Pas necessaire car déjà inclut dans le layoutForm et cette vue utilise le layoutForm
+      je peux rajouter un autre script RenderSection("SectionScripts", false)  si cette vue en utilise d'autre
+-->

@@ -53,8 +53,7 @@
     <script src="~/Scripts/jquery-3.0.0.min.js"></script>
     <script src="~/Scripts/popper-utils.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-
+    @RenderSection("SectionScripts",false)
+    <!-- false car lang=" vue n'est pas obligée de fournir la section" -->
 </body>
 </html>
