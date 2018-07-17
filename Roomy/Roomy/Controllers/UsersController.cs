@@ -25,8 +25,10 @@ namespace Roomy.Controllers
         {
             if (ModelState.IsValid)
             {
-
+                db.Users.Add(user);
+                db.SaveChanges();
             }
+            ViewBag.Civilities = db.Civilities.ToList(); 
             return View();
         }
 
