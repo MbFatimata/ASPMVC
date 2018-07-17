@@ -2,7 +2,7 @@
 <!-- lie le model à la vue -->
 @{
     /**/
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutForm.cshtml";
     ViewBag.Title = "Create";
 }
 @section SectionTitle
@@ -14,7 +14,7 @@
 @using (Html.BeginForm("Create", "Users", System.Web.Mvc.FormMethod.Post))
 {
     <div class="container">
-        <div class="col-md-6">
+        
             <div class="form-group">
 
                 @* <label for="inputNom">Nom</label>
@@ -60,14 +60,14 @@
                 @Html.ValidationMessageFor(x => x.BirthDate, "", new { @class = "text-danger" })
 
             </div>
-            <button type="submit" class="btn btn-primary " value="Enregistrer" />
-        </div>
+            <button type="submit" class="btn btn-primary ">Enregistrer </button>
+        
     </div>
 }
-<!--  @section SectionScripts{
+@*  @section SectionScripts{
         <script src="~/Scripts/jquery.validate.min.js"></script>
         <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
         }
       Pas necessaire car déjà inclut dans le layoutForm et cette vue utilise le layoutForm
       je peux rajouter un autre script RenderSection("SectionScripts", false)  si cette vue en utilise d'autre
--->
+*@

@@ -4,18 +4,25 @@
     Layout = "~/Views/Shared/_Layout.cshtml"; <!-- Utilise le layout principal car besoin du menu et des scripts principaux-->
 }
 
-<div class="card text-center">
-    <div class="card-header">
-        @RenderSection("SectionTitle",true) <!--true: Obligation de mettre un titre; titre de la vue qui a appelé mon layout-->
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                @RenderSection("SectionTitle",true) <!--true: Obligation de mettre un titre; titre de la vue qui a appelé mon layout-->
+            </div>
+            <div class="card-body">
+                @RenderBody() <!-- Body de la vue qui m'a appelé Le body comprend tous ce qui n'est pas dans une section de ma vue-->
+            </div>
+        </div>
     </div>
-    <div class="card-body">
-        @RenderBody() <!-- Body de la vue qui m'a appelé Le body comprend tous ce qui n'est pas dans une section de ma vue-->
-    </div>
+    <div class="col-md-3"></div>
 </div>
+
 @section SectionScripts{
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    @RenderSection("SectionScripts", false) <!-- Rajout des scripts de la vue qui a appelé le Layout-->
+    @RenderSection("SectionScripts", false) <!-- Rajout des scripts de la vue qui a appelé le Layout, ces scripts supplémentaires ne sont pas obligatooire dans ma vue (false)-->
 }
 
 
