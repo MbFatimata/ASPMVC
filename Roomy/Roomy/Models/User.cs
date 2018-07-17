@@ -44,6 +44,8 @@ namespace Roomy.Models
         [Compare ("Password", ErrorMessage = "Erreur sur la {0}")]
         public string ConfirmedPassword { get; set; }
 
+        [Required(ErrorMessage = "Le champ Civilité est obligatoire")]
+        [Display(Name = "Civilité")]
         public int CivilityID { get; set; }
         [ForeignKey("CivilityID")]
         public Civility Civility { get; set; }
