@@ -29,6 +29,7 @@ namespace Roomy.Models
         [DataType(DataType.Date)]
         public DateTime BirthDate { get; set; }
 
+        [Required(ErrorMessage = "Le champ {0} est obligatoire")]
         [Display(Name ="Mot de passe")]
         [DataType(DataType.Password)]
         [StringLength(20, MinimumLength = 6, ErrorMessage = "Le champ {0} doit contenir entre {2} et {1} caractères")]
@@ -36,9 +37,10 @@ namespace Roomy.Models
                            ErrorMessage = "Le {0} est invalide ")]
         public string Password { get; set; }
 
+        [Required(ErrorMessage = "Le champ {0} est obligatoire")]
         [Display(Name ="Confirmation du mot de passe")]
         [DataType(DataType.Password)]
-        [Compare ("Passwor", ErrorMessage = "Erreur sur la {0}")]
+        [Compare ("Password", ErrorMessage = "Erreur sur la {0}")]
         public string ConfirmedPassword { get; set; }
 
     }
