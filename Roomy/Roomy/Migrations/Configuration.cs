@@ -14,14 +14,14 @@ namespace Roomy.Migrations
             this.AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(RoomyDbContext context) //initialise valeur à la creation de la db
-        {
-            context.Civilities.AddOrUpdate(
-                new Models.Civility { Label = "Monsieur" },
-                new Models.Civility { Label = "Madame" },
-                new Models.Civility { Label = "Mademoiselle"}
-                );
+        //protected override void Seed(RoomyDbContext context) //initialise valeur à la creation de la db
+        //{
+        //    context.Civilities.AddOrUpdate(
+        //        new Models.Civility { Label = "Monsieur" },
+        //        new Models.Civility { Label = "Madame" },
+        //        new Models.Civility { Label = "Mademoiselle"}
+        //        );
                 
-        }
+        //}
     }
 }

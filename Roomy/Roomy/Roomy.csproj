@@ -183,11 +183,21 @@
     <Compile Include="Migrations\201807171312209_Init.Designer.cs">
       <DependentUpon>201807171312209_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807180822309_DropColumnConfirmedUser.cs" />
+    <Compile Include="Migrations\201807180822309_DropColumnConfirmedUser.Designer.cs">
+      <DependentUpon>201807180822309_DropColumnConfirmedUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807180929231_SuppressionStringLenghtPasswordUser.cs" />
+    <Compile Include="Migrations\201807180929231_SuppressionStringLenghtPasswordUser.Designer.cs">
+      <DependentUpon>201807180929231_SuppressionStringLenghtPasswordUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Civility.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\Extensions.cs" />
+    <Compile Include="Utils\Validator\Major.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config">
@@ -222,6 +232,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807171312209_Init.resx">
       <DependentUpon>201807171312209_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807180822309_DropColumnConfirmedUser.resx">
+      <DependentUpon>201807180822309_DropColumnConfirmedUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807180929231_SuppressionStringLenghtPasswordUser.resx">
+      <DependentUpon>201807180929231_SuppressionStringLenghtPasswordUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
