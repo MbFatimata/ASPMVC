@@ -34,7 +34,8 @@ namespace Roomy.Models
         [DisplayFormat(DataFormatString ="{0:dddd dd MMMM yyyy}")]
         public DateTime CreateAt { get; set; }
 
-        public int UserID { get; set; }
+        [Display(Name = "Utilisateurs")]
+        public int? UserID { get; set; }
         [ForeignKey("UserID")]
         public User User { get; set; }
     }
