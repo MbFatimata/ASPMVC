@@ -24,6 +24,7 @@ namespace Roomy.Models
                            @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
                            @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$",
                            ErrorMessage = "L'adresse mail n'est pas au bon format")]
+        [ExistingMailUser(ErrorMessage = "Cet Email est déjà utilisé")]
         public string Mail { get; set; }
 
         [Required(ErrorMessage ="Le champ {0} est obligatoire")]
