@@ -90,8 +90,12 @@ namespace Roomy.Areas.BackOffice.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Capacity,Price,Description,CreateAt,UserID,CategoryID")] Room room)
+        public ActionResult Edit([Bind(Include = "ID,Name,Capacity,Price,Description,UserID,CategoryID")] Room room) //je retire CreatedAt
         {
+            var old = db.Rooms.Find(room.ID); //je stocke ma date de creation car ne doit pas etre modifiée
+            room.CreateAt = old.CreateAt; // je redonne ma valeur de creation à objet modifié
+            db.Entry(old).State = EntityState.Detached; // je detache ma valeur de mon cache car sinon 2 valeurs pour CreatedAt et la base ne sera pas laquelle enregistrer
+
             if (ModelState.IsValid)
             {
                 db.Entry(room).State = EntityState.Modified;
