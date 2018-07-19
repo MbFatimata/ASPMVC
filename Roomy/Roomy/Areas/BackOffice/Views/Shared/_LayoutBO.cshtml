@@ -27,22 +27,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href=" @Url.Action("Index","Home",new { area = "" }) ">App</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href=" @Url.RouteUrl("AboutRoute") ">A propos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href=" @Url.Action("Create","Users") "> Nouvel Utilisateur</a>
-                    </li>
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown
+                            Salles
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="@Url.Action("Index","Rooms")">Voir</a>
+                            <a class="dropdown-item" href="@Url.Action("Create","Rooms")">Ajouter</a>
                         </div>
                     </li>
                 </ul>
@@ -59,6 +50,8 @@
     <script src="~/Scripts/jquery-3.0.0.min.js"></script>
     <script src="~/Scripts/popper-utils.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     @RenderSection("SectionScripts", false)
     <!-- false car lang=" vue n'est pas obligée de fournir la section" -->
 </body>
