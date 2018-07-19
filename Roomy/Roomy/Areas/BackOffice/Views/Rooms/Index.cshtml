@@ -51,7 +51,8 @@
             @Html.DisplayFor(modelItem => item.Price)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Description)
+            @*@Html.DisplayFor(modelItem => item.Description) nous affiche les balise html*@
+            @Html.Raw(item.Description)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CreateAt)
