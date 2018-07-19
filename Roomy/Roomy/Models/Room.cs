@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Roomy.Models
 {
@@ -26,6 +27,7 @@ namespace Roomy.Models
 
         [Display(Name = "Description")]
         [DataType(DataType.MultilineText)]
+        [AllowHtml]
         public string Description { get; set; }
 
         [Required(ErrorMessage = "Le champ {0} est obligatoire.")]
