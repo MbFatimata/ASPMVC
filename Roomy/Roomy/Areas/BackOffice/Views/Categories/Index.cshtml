@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Roomy.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Liste des catégories</h2>
+
+<p>
+    <a href="@Url.Action("Create")" class="btn btn-warning"><i class="fa fa-plus-circle"></i> Ajouter une catégorie</a> 
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+        @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+        @Html.ActionLink("Delete", "Delete", new { id=item.ID })*@
+
+            <a href="@Url.Action("Edit",new { id=item.ID })"><i class="fa fa-edit text-warning"></i></a>
+            <a href="@Url.Action("Details",new { id=item.ID })"><i class="fa fa-search text-warning"></i></a>
+            <a href="@Url.Action("Delete",new { id=item.ID })"><i class="fa fa-trash text-warning"></i></a>
+        </td>
+    </tr>
+}
+
+</table>

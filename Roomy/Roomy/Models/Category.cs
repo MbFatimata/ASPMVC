@@ -9,7 +9,7 @@ namespace Roomy.Models
     public class Category:BaseModel
     {
         [Required(ErrorMessage = "Nom obligatoire")]
-        [StringLength(15, ErrorMessage = "Trop long")]
+        [StringLength(20, ErrorMessage = "Trop long")]
         [Display(Name = "Libellé")]
         public string Name { get; set; }
     }

@@ -30,6 +30,9 @@
         <th>
             @Html.DisplayNameFor(model => model.CreateAt)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryID)
+        </th>
         <th></th>
     </tr>
 
@@ -54,12 +57,15 @@
             @Html.DisplayFor(modelItem => item.CreateAt)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.Category.Name)
+        </td>
+        <td>
             @*@Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-        @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-        @Html.ActionLink("Delete", "Delete", new { id=item.ID })*@
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })*@
 
             <a href="@Url.Action("Edit", new { id=item.ID })"><i class="fa fa-edit text-warning"></i></a>
-            <a href="@Url.Action("Details", new { id=item.ID })"><i class="fa fa-search text-warning" ></i></a>
+            <a href="@Url.Action("Details", new { id=item.ID })"><i class="fa fa-search text-warning"></i></a>
             <a href="@Url.Action("Delete", new { id=item.ID })"><i class="fa fa-trash text-warning"></i></a>
         </td>
     </tr>

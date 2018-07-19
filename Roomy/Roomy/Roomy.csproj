@@ -158,6 +158,11 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\BackOffice\Views\Categories\Create.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Categories\Delete.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Categories\Details.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Categories\Edit.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Categories\Index.cshtml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -192,6 +197,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\BackOffice\BackOfficeAreaRegistration.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DashboardController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\RoomsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -216,6 +222,14 @@
     <Compile Include="Migrations\201807181348375_AddRooms.cs" />
     <Compile Include="Migrations\201807181348375_AddRooms.Designer.cs">
       <DependentUpon>201807181348375_AddRooms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807190959221_ModelCategory.cs" />
+    <Compile Include="Migrations\201807190959221_ModelCategory.Designer.cs">
+      <DependentUpon>201807190959221_ModelCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807191017573_ModifForeignKeyRoom.cs" />
+    <Compile Include="Migrations\201807191017573_ModifForeignKeyRoom.Designer.cs">
+      <DependentUpon>201807191017573_ModifForeignKeyRoom.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseModel.cs" />
@@ -271,6 +285,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807181348375_AddRooms.resx">
       <DependentUpon>201807181348375_AddRooms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807190959221_ModelCategory.resx">
+      <DependentUpon>201807190959221_ModelCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807191017573_ModifForeignKeyRoom.resx">
+      <DependentUpon>201807191017573_ModifForeignKeyRoom.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
