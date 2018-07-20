@@ -76,13 +76,15 @@ namespace Roomy.Areas.BackOffice.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Room room = db.Rooms.Find(id);
+            Room room = db.Rooms.Include(x => x.Files).SingleOrDefault(x => x.ID == id) ;
             if (room == null)
             {
                 return HttpNotFound();
             }
             ViewBag.UserID = new SelectList(db.Users, "ID", "Lastname", room.UserID);
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "Name", room.CategoryID);
+
+
             return View(room);
         }
 
@@ -138,20 +140,24 @@ namespace Roomy.Areas.BackOffice.Controllers
         [HttpPost]
         public ActionResult AddFile(int id, HttpPostedFileBase upload)
         {
-            var model = new RoomFile();
-            model.RoomID = id;
-            model.Name = upload.FileName;
-            model.ContentType = upload.ContentType;
-            //convertir string en byte
-            using (var reader = new BinaryReader(upload.InputStream))
+            if (upload.ContentLength > 0) // si fichier vide ne rien afficher
             {
-                model.Content = reader.ReadBytes(upload.ContentLength);
+                var model = new RoomFile();
+                model.RoomID = id;
+                model.Name = upload.FileName;
+                model.ContentType = upload.ContentType;
+                //convertir string en byte
+                using (var reader = new BinaryReader(upload.InputStream))
+                {
+                    model.Content = reader.ReadBytes(upload.ContentLength);
+                }
+
+                db.RoomFiles.Add(model);
+                db.SaveChanges();
+
+                return RedirectToAction("Edit", new { id = model.RoomID });
             }
-
-            db.RoomFiles.Add(model);
-            db.SaveChanges();
-
-            return RedirectToAction("Edit", new { id = model.RoomID });
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
 
         protected override void Dispose(bool disposing)
