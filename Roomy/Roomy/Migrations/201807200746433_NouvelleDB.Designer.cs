@@ -7,13 +7,13 @@ namespace Roomy.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Init : IMigrationMetadata
+    public sealed partial class NouvelleDB : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Init));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(NouvelleDB));
         
         string IMigrationMetadata.Id
         {
-            get { return "201807171312209_Init"; }
+            get { return "201807200746433_NouvelleDB"; }
         }
         
         string IMigrationMetadata.Source

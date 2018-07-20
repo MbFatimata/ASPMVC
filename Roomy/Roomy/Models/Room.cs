@@ -34,7 +34,7 @@ namespace Roomy.Models
         [Display(Name = "Date de création")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString ="{0:dddd dd MMMM yyyy}")]
-        public DateTime CreateAt { get; set; }
+        public DateTime CreatedAt { get; set; }
 
         [Display(Name = "Utilisateurs")]
         public int? UserID { get; set; }
@@ -45,5 +45,7 @@ namespace Roomy.Models
         public int CategoryID { get; set; }
         [ForeignKey("CategoryID")]
         public Category Category { get; set; }
+
+        public ICollection<RoomFile> Files { get; set; }
     }
 }

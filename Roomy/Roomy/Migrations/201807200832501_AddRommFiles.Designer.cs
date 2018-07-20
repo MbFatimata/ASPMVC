@@ -7,13 +7,13 @@ namespace Roomy.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class DropColumnConfirmedUser : IMigrationMetadata
+    public sealed partial class AddRommFiles : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(DropColumnConfirmedUser));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddRommFiles));
         
         string IMigrationMetadata.Id
         {
-            get { return "201807180822309_DropColumnConfirmedUser"; }
+            get { return "201807200832501_AddRommFiles"; }
         }
         
         string IMigrationMetadata.Source

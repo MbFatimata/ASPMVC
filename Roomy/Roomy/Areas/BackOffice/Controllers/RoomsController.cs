@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -93,7 +94,7 @@ namespace Roomy.Areas.BackOffice.Controllers
         public ActionResult Edit([Bind(Include = "ID,Name,Capacity,Price,Description,UserID,CategoryID")] Room room) //je retire CreatedAt
         {
             var old = db.Rooms.Find(room.ID); //je stocke ma date de creation car ne doit pas etre modifiée
-            room.CreateAt = old.CreateAt; // je redonne ma valeur de creation à objet modifié
+            room.CreatedAt = old.CreatedAt; // je redonne ma valeur de creation à objet modifié
             db.Entry(old).State = EntityState.Detached; // je detache ma valeur de mon cache car sinon 2 valeurs pour CreatedAt et la base ne sera pas laquelle enregistrer
 
             if (ModelState.IsValid)
@@ -132,6 +133,25 @@ namespace Roomy.Areas.BackOffice.Controllers
             db.Rooms.Remove(room);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult AddFile(int id, HttpPostedFileBase upload)
+        {
+            var model = new RoomFile();
+            model.RoomID = id;
+            model.Name = upload.FileName;
+            model.ContentType = upload.ContentType;
+            //convertir string en byte
+            using (var reader = new BinaryReader(upload.InputStream))
+            {
+                model.Content = reader.ReadBytes(upload.ContentLength);
+            }
+
+            db.RoomFiles.Add(model);
+            db.SaveChanges();
+
+            return RedirectToAction("Edit", new { id = model.RoomID });
         }
 
         protected override void Dispose(bool disposing)
