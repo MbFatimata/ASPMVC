@@ -13,9 +13,9 @@ namespace Roomy.Filters
         {
             if (filterContext.HttpContext.Session["USER_BO"] == null)
             {
-                filterContext.Result = new RedirectResult("\\BackOffice\\Autentification\\Login");
+                filterContext.Result = new RedirectResult("\\BackOffice\\Authentication\\Login");
             }
-            base.OnActionExecuting(filterContext);
+
         }
     }
 }
