@@ -13,6 +13,11 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
+    @*Cas 2 erreur authentification*@
+    @if (!string.IsNullOrWhiteSpace(ViewBag.ErrorMessage))
+    {
+        <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+    }
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
