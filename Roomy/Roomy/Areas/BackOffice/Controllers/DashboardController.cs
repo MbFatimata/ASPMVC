@@ -1,4 +1,5 @@
-﻿using Roomy.Filters;
+﻿using Roomy.Controllers;
+using Roomy.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace Roomy.Areas.BackOffice.Controllers
 {
     [AuthenticationFilter]
 
-    public class DashboardController : Controller
+    public class DashboardController : BaseController
     {
         // GET: BackOffice/Dashboard
 

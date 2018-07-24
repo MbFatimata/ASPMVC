@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Roomy.Controllers
 {
-    public class TestsController : Controller
+    public class TestsController : BaseController
     {
         // GET: Tests
         public ActionResult Index()

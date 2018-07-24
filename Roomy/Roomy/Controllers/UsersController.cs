@@ -9,9 +9,9 @@ using Roomy.Utils;
 
 namespace Roomy.Controllers
 {
-    public class UsersController : Controller
+    public class UsersController : BaseController
     {
-        private RoomyDbContext db = new RoomyDbContext();
+        //private RoomyDbContext db = new RoomyDbContext(); dans BaseController
         // GET: Users
         [HttpGet]
         public ActionResult Create()
@@ -31,18 +31,21 @@ namespace Roomy.Controllers
 
                 db.Users.Add(user);
                 db.SaveChanges();
+
+                TempData["Message"] = $"Utilisateur {user.Lastname} enregistré.";
+                return RedirectToAction("Index", "Home");
             }
             ViewBag.Civilities = db.Civilities.ToList(); 
             return View();
         }
 
-        protected override void Dispose(bool disposing) //pour liberer connexion à la base de donnees lorque controleur a fini de l'utiliser
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing) //pour liberer connexion à la base de donnees lorque controleur a fini de l'utiliser 
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //} Dans BaseController
     }
 }

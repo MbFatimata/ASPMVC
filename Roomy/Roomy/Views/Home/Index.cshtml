@@ -5,6 +5,10 @@
 <body>
     <div class="container">
         <h1>Accueil</h1>
+        @if(TempData["Message"] != null && !string.IsNullOrWhiteSpace(TempData["Message"].ToString()))
+        {
+            <div class=" alert alert-success">@TempData["Message"]</div>
+        }
         <a href="~/a-propos"> A propos</a>
         <br />
         @Html.ActionLink("A propos", "About", "Home")

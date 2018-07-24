@@ -54,6 +54,10 @@
                 </span>
             </div>
         </nav>
+        @if (TempData["Message"] != null)
+        {
+            <div class="alert alert-@TempData["MessageType"].ToString()">@TempData["Message"].ToString()</div>
+        }
         @RenderBody()
         <footer class="bg-warning">
             &copy; BACKOFFICE POEC Rouen 2018

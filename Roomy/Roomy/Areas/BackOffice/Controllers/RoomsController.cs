@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Roomy.Controllers;
 using Roomy.Data;
 using Roomy.Filters;
 using Roomy.Models;
@@ -15,9 +16,9 @@ namespace Roomy.Areas.BackOffice.Controllers
 {
     [AuthenticationFilter]
 
-    public class RoomsController : Controller
+    public class RoomsController : BaseController
     {
-        private RoomyDbContext db = new RoomyDbContext();
+        //private RoomyDbContext db = new RoomyDbContext();
 
         // GET: BackOffice/Rooms
         public ActionResult Index()
@@ -137,6 +138,7 @@ namespace Roomy.Areas.BackOffice.Controllers
             Room room = db.Rooms.Find(id);
             db.Rooms.Remove(room);
             db.SaveChanges();
+            TempData["Message"] = $"Fichier ajouté";
             return RedirectToAction("Index");
         }
 
@@ -163,13 +165,13 @@ namespace Roomy.Areas.BackOffice.Controllers
             return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
     }
 }
