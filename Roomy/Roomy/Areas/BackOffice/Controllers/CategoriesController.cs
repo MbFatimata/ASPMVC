@@ -76,6 +76,7 @@ namespace Roomy.Areas.BackOffice.Controllers
             {
                 return HttpNotFound();
             }
+            DisplayMessage("Catégorie modifiée", MessageType.SUCCESS);
             return View(category);
         }
 
@@ -105,8 +106,10 @@ namespace Roomy.Areas.BackOffice.Controllers
             Category category = db.Categories.Find(id);
             if (category == null)
             {
+                DisplayMessage("Catégorie supprimée", MessageType.ERROR);
                 return HttpNotFound();
             }
+            DisplayMessage("Catégorie supprimée", MessageType.SUCCESS);
             return View(category);
         }
 
